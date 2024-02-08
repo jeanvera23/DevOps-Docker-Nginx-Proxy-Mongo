@@ -16,5 +16,18 @@ This is a template uses docker to create multiple containers including:
     ```bash
     docker compose -p $(hostname) up -d
     ```
+6. Enter your mongodb container, and create the database for your application, replace MONGODB_USER and MONGODB_PASSWORD with your own credentials.
+
+    ``` bash
+    sudo docker exec -it mongodb mongosh --username [MONGODB_USER] --passwo
+    rd [MONGODB_PASSWORD]
+    ```
+
+
 ## Recomendations
 Remember to put your applicacions in the same network. In this case, the network name is called "app-network"
+
+When connecting an app to mongo use the admin auth connection. The db_name should be replaced by your own database name
+``` bash
+mongodb://root:password@mongodb:27017/[db_name]?authSource=admin
+```
