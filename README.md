@@ -14,7 +14,7 @@ This is a template uses docker to create multiple containers including:
 
 5. Run:
     ```bash
-    docker compose -p $(hostname) up -d
+    docker compose up -d --build
     ```
 6. Enter your mongodb container, and create the database for your application, replace MONGODB_USER and MONGODB_PASSWORD with your own credentials.
 
