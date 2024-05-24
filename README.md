@@ -21,8 +21,18 @@ This is a template uses docker to create multiple containers including:
     ``` bash
     sudo docker exec -it mongodb mongosh --username [MONGODB_USER] --passwo
     rd [MONGODB_PASSWORD]
+    
     ```
-
+7. Create a DB
+   ``` bash
+    use [DB_NAME]
+    
+    ```
+8. Create a collection
+   ``` bash
+    db.createCollection("users")
+    
+    ```
 
 ## Recomendations
 Remember to put your applicacions in the same network. In this case, the network name is called "app-network"
