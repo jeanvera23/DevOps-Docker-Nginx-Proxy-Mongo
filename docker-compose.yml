@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   nginx-proxy:
     image: nginxproxy/nginx-proxy
@@ -43,6 +41,21 @@ services:
     restart: unless-stopped
     networks:
       - app-network
+      
+  portainer:
+    image: portainer/portainer-ce:lts
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    networks:
+      - app-network
+    environment:
+      - VIRTUAL_HOST=portainer.yourdomain.com
+      - VIRTUAL_PORT=9000
+    ports:
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
 
 networks:
   app-network:
@@ -54,3 +67,4 @@ volumes:
   html:
   acme:
   db-data:
+  portainer_data:
