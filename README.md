@@ -7,6 +7,7 @@ This is a template uses docker to create multiple containers including:
 ## Steps
 1. Clone this repo in your VM
 2. Create a new `.env` file to include your `MONGODB_USER` and `MONGODB_PASSWORD` use the `.env.example` as an example.
+3. Modify the DEFAULT_EMAIL: mail@yourdomain.tld
 4. Create a shared network to connect nginx with your application:
     ```bash
     docker network create app-network
