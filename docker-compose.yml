@@ -9,26 +9,23 @@ services:
     networks:
       - app-network
     volumes:
-      #- /root/jean/htpasswd:/etc/nginx/htpasswd:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs:ro
-      - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
-    labels:
-      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 
   letsencrypt:
     image: nginxproxy/acme-companion
     container_name: letsencrypt
     restart: always
-    networks:
-      - app-network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./certs:/etc/nginx/certs:rw
-      - vhost:/etc/nginx/vhost.d:rw
-      - html:/usr/share/nginx/html:rw
       - acme:/etc/acme.sh
+    environment:
+      DEFAULT_EMAIL: mail@yourdomain.tld
+    depends_on:
+      - nginx-proxy
+    networks:
+      - app-networ
       
   mongo:
     container_name: mongodb
