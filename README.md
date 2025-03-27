@@ -41,3 +41,5 @@ When connecting an app to mongo use the admin auth connection. The db_name shoul
 ``` bash
 mongodb://root:password@mongodb:27017/[db_name]?authSource=admin
 ```
+
+Remember to add VIRTUAL_HOST, LETSENCRYPT_HOST, VIRTUAL_PORT (optional)
