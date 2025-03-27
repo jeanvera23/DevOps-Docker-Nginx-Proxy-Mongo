@@ -12,6 +12,8 @@ services:
       - ./certs:/etc/nginx/certs:ro
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    labels:
+      - com.github.nginx-proxy.nginx
 
   letsencrypt:
     image: nginxproxy/acme-companion
