@@ -24,6 +24,7 @@ services:
       - acme:/etc/acme.sh
       - ./certs:/etc/nginx/certs:rw
       - html:/usr/share/nginx/html:rw
+      - vhost:/etc/nginx/vhost.d:rw
     environment:
       DEFAULT_EMAIL: mail@yourdomain.tld
     depends_on:
