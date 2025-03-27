@@ -25,7 +25,7 @@ services:
     depends_on:
       - nginx-proxy
     networks:
-      - app-networ
+      - app-network
       
   mongo:
     container_name: mongodb
