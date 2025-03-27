@@ -22,6 +22,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/acme.sh
+      - ./certs:/etc/nginx/certs:rw
     environment:
       DEFAULT_EMAIL: mail@yourdomain.tld
     depends_on:
